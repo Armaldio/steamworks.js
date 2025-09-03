@@ -7,7 +7,7 @@ pub mod leaderboards {
     use std::sync::{Arc, Mutex};
     use steamworks::{
         Leaderboard, LeaderboardDataRequest, LeaderboardDisplayType,
-        LeaderboardEntry as SteamLeaderboardEntry, LeaderboardSortMethod, SteamId,
+        LeaderboardEntry as SteamLeaderboardEntry, LeaderboardSortMethod,
         UploadScoreMethod as SteamUploadScoreMethod,
     };
     use tokio::sync::oneshot;
