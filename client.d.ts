@@ -120,32 +120,27 @@ export declare namespace leaderboards {
     steamId: bigint
     details: Array<number>
   }
-  
   export const enum SortMethod {
     Ascending = 0,
     Descending = 1
   }
-  
   export const enum DisplayType {
     Numeric = 0,
     TimeSeconds = 1,
     TimeMilliSeconds = 2
   }
-  
   export const enum DataRequest {
     Global = 0,
     GlobalAroundUser = 1,
     Friends = 2
   }
-  
   export const enum UploadScoreMethod {
     KeepBest = 0,
     ForceUpdate = 1
   }
-
   export function findLeaderboard(name: string): Promise<string | null>
   export function findOrCreateLeaderboard(name: string, sortMethod: SortMethod, displayType: DisplayType): Promise<string | null>
-  export function uploadScore(leaderboardName: string, score: number, uploadMethod: UploadScoreMethod, details?: Array<number>): Promise<LeaderboardEntry | null>
+  export function uploadScore(leaderboardName: string, score: number, uploadMethod: UploadScoreMethod, details?: Array<number> | undefined | null): Promise<LeaderboardEntry | null>
   export function downloadScores(leaderboardName: string, dataRequest: DataRequest, rangeStart: number, rangeEnd: number): Promise<Array<LeaderboardEntry>>
   export function getLeaderboardName(leaderboardName: string): string | null
   export function getLeaderboardEntryCount(leaderboardName: string): number | null
@@ -380,6 +375,7 @@ export declare namespace workshop {
    * @returns an array of subscribed workshop item ids
    */
   export function getSubscribedItems(includeLocallyDisabled: boolean): Array<bigint>
+  export function deleteItem(itemId: bigint): Promise<void>
   export const enum UGCQueryType {
     RankedByVote = 0,
     RankedByPublicationDate = 1,
@@ -510,7 +506,7 @@ export declare namespace workshop {
   export function getAllItems(page: number, queryType: UGCQueryType, itemType: UGCType, creatorAppId: number, consumerAppId: number, queryConfig?: WorkshopItemQueryConfig | undefined | null): Promise<WorkshopPaginatedResult>
   export function getUserItems(page: number, accountId: number, listType: UserListType, itemType: UGCType, sortOrder: UserListOrder, appIds: AppIDs, queryConfig?: WorkshopItemQueryConfig | undefined | null): Promise<WorkshopPaginatedResult>
 }
-export namespace networking_messages {
+export declare namespace networking_messages {
   export interface Message {
     data: Buffer
     steamId?: PlayerSteamId
