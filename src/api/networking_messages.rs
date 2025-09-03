@@ -6,10 +6,8 @@ pub mod networking_messages {
   use steamworks::SteamError;
   use steamworks::SteamId;
   use crate::api::localplayer::PlayerSteamId;
-  use steamworks::ClientManager;
   use steamworks::networking_types::SendFlags;
   use steamworks::networking_types::NetworkingIdentity;
-  use steamworks::networking_types::NetworkingMessage;
 
   #[napi(object)]
   pub struct Message {
@@ -56,7 +54,8 @@ pub mod networking_messages {
     client
       .networking_messages()
       .receive_messages_on_channel(0, 10)
-      .iter().map(|m:&NetworkingMessage<ClientManager>| {
+      .iter()
+      .map(|m| {
         let steam_id = m.identity_peer().steam_id();
         
         if let Some(steam_id) = steam_id {
@@ -66,8 +65,7 @@ pub mod networking_messages {
         } else {
           return Message { data: m.data().into(), steam_id: None };
         }
-        
-      }).collect()
+      })
+      .collect()
   }
-
 }
