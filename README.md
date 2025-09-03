@@ -1,3 +1,30 @@
+# steamworks.js (Community Fork)
+
+> **Note**: This is an actively maintained community fork of [steamworks.js](https://github.com/ceifa/steamworks.js). 
+> We're keeping the project active by reviewing and merging pending PRs and addressing issues.
+
+## Why This Fork?
+
+- ✅ Actively reviewing and merging PRs
+- ✅ Regular updates and bug fixes  
+- ✅ Community-driven development
+- ✅ NW.js support improvements
+- ✅ Incorporating pending PRs from upstream
+
+## Installation
+
+```bash
+# npm - use our scoped package
+npm install @mikaldev/steamworks.js
+
+# Or reference directly from GitHub
+npm install github:MikalDev/steamworks.js
+
+# For Electron/NW.js projects
+npm install github:MikalDev/steamworks.js --runtime=electron --target=27.0.0
+npm install github:MikalDev/steamworks.js --runtime=node-webkit --target=0.75.0
+
+
 [![Build Status](https://github.com/ceifa/steamworks.js/actions/workflows/publish.yml/badge.svg)](https://github.com/ceifa/steamworks.js/actions/workflows/publish.yml)
 [![npm](https://img.shields.io/npm/v/steamworks.js.svg)](https://npmjs.com/package/steamworks.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
