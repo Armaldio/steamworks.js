@@ -1,8 +1,11 @@
 {
-    "name": "steamworks.js",
+    "name": "@armaldio/steamworks.js",
     "version": "0.5.0",
     "main": "index.js",
     "types": "index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
     "napi": {
         "name": "steamworksjs",
         "triples": {
